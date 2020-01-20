@@ -23,6 +23,10 @@ export class FormUserDetails extends Component {
                         floatingLabelText="First Name"
                         onChange={handleChange('firstName')}
                         defaultValue={values.firstName}
+                        errorText={
+                            (values.isEmpty && values.firstName.length === 0) ?
+                            'Empty field!' : false
+                        }
                     />
                     <br />
                     <TextField 
@@ -30,6 +34,10 @@ export class FormUserDetails extends Component {
                         floatingLabelText="Last Name"
                         onChange={handleChange('lastName')}
                         defaultValue={values.lastName}
+                        errorText={
+                            (values.isEmpty && values.lastName.length === 0) ?
+                            'Empty field!' : false
+                        }
                     />
                     <br />
                     <TextField 
@@ -37,6 +45,10 @@ export class FormUserDetails extends Component {
                         floatingLabelText="Email"
                         onChange={handleChange('email')}
                         defaultValue={values.email}
+                        errorText={
+                            (values.isEmpty && values.email.length === 0) ?
+                            'Empty field!' : false
+                        }
                     />
                     <br />
                     <RaisedButton 

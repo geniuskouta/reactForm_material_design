@@ -28,6 +28,10 @@ export class FormPersonalDetails extends Component {
                         floatingLabelText="Occupation"
                         onChange={handleChange('occupation')}
                         defaultValue={values.occupation}
+                        errorText={
+                            (values.isEmpty && values.occupation.length === 0) ?
+                            'Empty field!': false
+                        }
                     />
                     <br />
                     <TextField 
@@ -35,6 +39,10 @@ export class FormPersonalDetails extends Component {
                         floatingLabelText="City"
                         onChange={handleChange('city')}
                         defaultValue={values.city}
+                        errorText={
+                            (values.isEmpty && values.city.length === 0) ?
+                            'Empty field!': false
+                        }
                     />
                     <br />
                     <TextField 
@@ -42,6 +50,10 @@ export class FormPersonalDetails extends Component {
                         floatingLabelText="Bio"
                         onChange={handleChange('bio')}
                         defaultValue={values.Bio}
+                        errorText={
+                            (values.isEmpty && values.bio.length === 0) ?
+                            'Empty field!': false
+                        }
                     />
                     <br />
                     <RaisedButton 

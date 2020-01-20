@@ -12,15 +12,39 @@ export class UserForm extends Component {
         email: '',
         occupation: '',
         city: '',
-        bio: ''
+        bio: '',
+        isEmpty: false
     }
 
     //Proceed to next step
     nextStep = () =>{
-        const { step } = this.state;
-        this.setState({
-            step: step + 1
-        });
+        const { step, firstName, lastName, email, occupation, city, bio } = this.state;
+        switch(step){
+            case 1:
+                if(firstName && lastName && email){
+                  return this.setState({
+                    step: step + 1,
+                    isEmpty: false
+                  });
+                }
+                return this.setState({
+                    isEmpty: true
+                });
+            case 2:
+                if(occupation && city && bio){
+                    return this.setState({
+                      step: step + 1,
+                      isEmpty: false
+                    });
+                }
+                return this.setState({
+                    isEmpty: true
+                });
+            default:
+                return this.setState({
+                    step: step + 1
+                });
+        }
     }
     //Go back to previous step
     prevStep = () =>{
@@ -39,8 +63,8 @@ export class UserForm extends Component {
 
     render() {
         const { step } = this.state;
-        const { firstName, lastName, email, occupation, city, bio } = this.state;
-        const values = {firstName, lastName, email, occupation, city, bio};
+        const { firstName, lastName, email, occupation, city, bio, isEmpty } = this.state;
+        const values = {firstName, lastName, email, occupation, city, bio, isEmpty};
 
         switch(step){
             case 1:
